@@ -137,9 +137,9 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           </div>
         </div>
 
-        {/* Right Visual Badge Column — Canva Interactive Design by ARM UXUI */}
+        {/* Right Visual Animation Column */}
         <div className="relative flex justify-center items-center py-4 w-full">
-          <div className="w-full max-w-[460px] lg:max-w-[480px] rounded-3xl overflow-hidden shadow-2xl border border-white/90 glass-surface p-2.5 transition-all duration-300 hover:shadow-[#7e5356]/15">
+          <div className="w-full max-w-[440px] sm:max-w-[460px] rounded-3xl overflow-hidden shadow-2xl border border-white/90 glass-surface p-2 transition-all duration-300">
             <div className="relative w-full pt-[100%] rounded-2xl overflow-hidden shadow-inner bg-[#fcf8fb]">
               <iframe
                 loading="lazy"
@@ -147,21 +147,8 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
                 src="https://www.canva.com/design/DAHQ4bwY5XI/5qKsneQjx7mDrIMf55xRTA/watch?embed"
                 allowFullScreen={true}
                 allow="fullscreen"
-                title="ดีไซน์โดย ARM UXUI"
+                title="Animation"
               ></iframe>
-            </div>
-            <div className="pt-2.5 pb-1 px-3 flex items-center justify-between text-xs text-[#5d5e63]">
-              <span className="font-th-heading font-semibold flex items-center gap-1.5 text-[#7e5356]">
-                <Sparkles className="w-3.5 h-3.5" /> ดีไซน์โดย ARM UXUI
-              </span>
-              <a
-                href="https://www.canva.com/design/DAHQ4bwY5XI/5qKsneQjx7mDrIMf55xRTA/watch?utm_content=DAHQ4bwY5XI&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline font-medium text-[11px] text-[#45474a]"
-              >
-                เปิดใน Canva ↗
-              </a>
             </div>
           </div>
         </div>
