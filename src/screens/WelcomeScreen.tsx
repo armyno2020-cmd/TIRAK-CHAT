@@ -137,63 +137,31 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           </div>
         </div>
 
-        {/* Right Visual Badge Column */}
-        <div className="relative flex justify-center items-center py-4">
-          <div className="relative w-full max-w-[380px] sm:max-w-[440px] aspect-square flex items-center justify-center">
-            {/* Spinning background glass rings */}
-            <div className="absolute inset-0 border border-[#7e5356]/15 rounded-full animate-[spin_25s_linear_infinite] pointer-events-none"></div>
-            <div className="absolute inset-8 border border-[#7e5356]/10 rounded-full animate-[spin_18s_linear_infinite_reverse] pointer-events-none"></div>
-
-            {/* Central Glass Shield Card */}
-            <div className="glass-surface w-[75%] h-[75%] rounded-3xl p-6 flex flex-col items-center justify-center relative overflow-hidden shadow-2xl floating-element border border-white/90">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ffdadb]/30 to-transparent pointer-events-none"></div>
-
-              <NewFoundLogo size="xl" />
-
-              <div className="mt-3 text-center z-10">
-                <span className="font-th-heading font-extrabold text-lg text-[#1A2648] tracking-wider uppercase block">
-                  NEWFOUND
-                </span>
-                <span className="text-[10px] text-[#7e5356] font-bold uppercase tracking-widest block">
-                  E2EE Signal Vault
-                </span>
-              </div>
+        {/* Right Visual Badge Column — Canva Interactive Design by ARM UXUI */}
+        <div className="relative flex justify-center items-center py-4 w-full">
+          <div className="w-full max-w-[460px] lg:max-w-[480px] rounded-3xl overflow-hidden shadow-2xl border border-white/90 glass-surface p-2.5 transition-all duration-300 hover:shadow-[#7e5356]/15">
+            <div className="relative w-full pt-[100%] rounded-2xl overflow-hidden shadow-inner bg-[#fcf8fb]">
+              <iframe
+                loading="lazy"
+                className="absolute inset-0 w-full h-full border-none rounded-2xl"
+                src="https://www.canva.com/design/DAHQ4bwY5XI/5qKsneQjx7mDrIMf55xRTA/watch?embed"
+                allowFullScreen={true}
+                allow="fullscreen"
+                title="ดีไซน์โดย ARM UXUI"
+              ></iframe>
             </div>
-
-            {/* Floating Top Node */}
-            <div
-              className="absolute -top-2 right-[5%] glass-surface p-3.5 rounded-2xl border border-white/80 shadow-lg flex items-center gap-3 floating-element"
-              style={{ animationDelay: "-1.5s" }}
-            >
-              <div className="w-9 h-9 rounded-full bg-[#ffdadb] flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-[#7e5356]" />
-              </div>
-              <div className="text-left">
-                <p className="font-th-heading text-[10px] font-bold text-[#7e5356] tracking-wider">
-                  แชทส่วนตัว
-                </p>
-                <p className="font-th-body text-xs font-extrabold text-[#1b1b1d]">
-                  เข้ารหัส E2EE
-                </p>
-              </div>
-            </div>
-
-            {/* Floating Bottom Node */}
-            <div
-              className="absolute bottom-[8%] -left-3 glass-surface p-3.5 rounded-2xl border border-white/80 shadow-lg flex items-center gap-3 floating-element"
-              style={{ animationDelay: "-3s" }}
-            >
-              <div className="w-9 h-9 rounded-full bg-[#e3e2e7] flex items-center justify-center">
-                <FolderLock className="w-5 h-5 text-[#5d5e63]" />
-              </div>
-              <div className="text-left">
-                <p className="font-th-heading text-[10px] font-bold text-[#5d5e63] tracking-wider">
-                  คลังปลอดภัย
-                </p>
-                <p className="font-th-body text-xs font-extrabold text-[#1b1b1d]">
-                  พื้นที่จัดเก็บเข้ารหัส
-                </p>
-              </div>
+            <div className="pt-2.5 pb-1 px-3 flex items-center justify-between text-xs text-[#5d5e63]">
+              <span className="font-th-heading font-semibold flex items-center gap-1.5 text-[#7e5356]">
+                <Sparkles className="w-3.5 h-3.5" /> ดีไซน์โดย ARM UXUI
+              </span>
+              <a
+                href="https://www.canva.com/design/DAHQ4bwY5XI/5qKsneQjx7mDrIMf55xRTA/watch?utm_content=DAHQ4bwY5XI&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-medium text-[11px] text-[#45474a]"
+              >
+                เปิดใน Canva ↗
+              </a>
             </div>
           </div>
         </div>
