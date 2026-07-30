@@ -43,9 +43,9 @@ export const OfficialAccountScreen: React.FC<any> = (props) => {
           <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white glass-surface flex items-center justify-center p-1 overflow-hidden shadow-sm">
               <img
-                className="w-full h-full object-cover rounded-full"
-                alt="Brand"
-                src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=300"
+                className="w-full h-full object-contain p-2 rounded-full"
+                alt="TIRAK CHAT Official"
+                src="/tirak_logo.png"
               />
             </div>
             <div className="flex-1 text-center md:text-left space-y-4">

@@ -93,7 +93,7 @@ export const MyQRCodeScreen: React.FC<any> = (props) => {
             @{currentUser?.username || "user"}
           </p>
 
-          <div className="glass-surface p-6 rounded-2xl shadow-xs border border-white/80 mb-6 flex items-center justify-center bg-white/90">
+          <div className="glass-surface p-6 rounded-2xl shadow-xs border border-white/80 mb-6 flex items-center justify-center bg-white/90 relative">
             <QRCodeSVG
               id="user-qr-svg"
               value={qrValue}
@@ -101,6 +101,14 @@ export const MyQRCodeScreen: React.FC<any> = (props) => {
               fgColor="#1b1b1d"
               bgColor="transparent"
               level="H"
+              imageSettings={{
+                src: "/tirak_logo.png",
+                x: undefined,
+                y: undefined,
+                height: 42,
+                width: 42,
+                excavate: true,
+              }}
             />
           </div>
 

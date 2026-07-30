@@ -61,10 +61,14 @@ export const DesktopNavigationRail: React.FC<DesktopNavigationRailProps> = ({
         {/* Brand Icon */}
         <button
           onClick={() => onNavigate("chat_list")}
-          className="glass-button-secondary w-10 h-10 rounded-2xl glass-button-primary flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+          className="glass-button-secondary w-10 h-10 rounded-2xl glass-button-primary flex items-center justify-center p-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer group bg-white/80"
           title="TIRAK CHAT Desktop"
         >
-          <MessageSquare className="w-5 h-5 transition-transform group-hover:rotate-6" />
+          <img
+            src="/tirak_logo.png"
+            alt="TIRAK CHAT"
+            className="w-full h-full object-contain filter drop-shadow-2xs transition-transform group-hover:rotate-6"
+          />
         </button>
 
         {/* User Profile Avatar */}

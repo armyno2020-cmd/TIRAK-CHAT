@@ -76,9 +76,13 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({
       <main className="flex-1 flex flex-col items-center p-6 w-full max-w-[440px] mx-auto pt-28">
         <div className="w-full glass-surface rounded-3xl p-8 flex flex-col items-center shadow-xs border border-white/80 relative">
           <div id="recaptcha-container"></div>
-          {/* Shield Icon */}
-          <div className="w-16 h-16 rounded-full glass-surface border border-white/60 shadow-inner flex items-center justify-center mb-6">
-            <Shield className="w-8 h-8 text-[#7e5356]" strokeWidth={2.5} />
+          {/* App Logo */}
+          <div className="w-20 h-20 rounded-2xl glass-surface border border-white/80 shadow-md flex items-center justify-center mb-5 p-2 bg-white/70">
+            <img
+              src="/tirak_logo.png"
+              alt="TIRAK CHAT"
+              className="w-full h-full object-contain filter drop-shadow-xs"
+            />
           </div>
 
           <div className="text-center mb-8">

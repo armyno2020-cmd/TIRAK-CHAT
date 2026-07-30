@@ -87,7 +87,7 @@ export const PrivacyIntroScreen: React.FC<PrivacyIntroScreenProps> = ({
           </h2>
           <p className="text-[#45474a] font-[Inter] text-[17px] max-w-2xl leading-relaxed">
             {getTranslation(activeLanguage, "privacyManifestoDesc") ||
-              "เราใช้การเข้ารหัสระดับโลกเพื่อให้มั่นใจว่าข้อมูลของคุณยังคงเป็นของคุณ NEWFOUND ไม่สามารถอ่าน เห็น หรือแบ่งปันบทสนทนาส่วนตัวของคุณได้"}
+              "เราใช้การเข้ารหัสระดับโลกเพื่อให้มั่นใจว่าข้อมูลของคุณยังคงเป็นของคุณ Tirak Chat ไม่สามารถอ่าน เห็น หรือแบ่งปันบทสนทนาส่วนตัวของคุณได้"}
           </p>
         </section>
 

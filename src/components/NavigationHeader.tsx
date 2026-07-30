@@ -60,7 +60,11 @@ export const NavigationHeader: React.FC<NavigationHeaderProps> = ({
           {showBack ? (
             <ArrowLeft className="w-5 h-5 text-[#7e5356]" />
           ) : (
-            <ShieldCheck className="w-6 h-6 text-[#7e5356]" />
+            <img
+              src="/tirak_logo.png"
+              alt="TIRAK CHAT"
+              className="w-6 h-6 object-contain filter drop-shadow-2xs"
+            />
           )}
           <div className="flex flex-col">
             <span className="font-th-heading text-lg md:text-xl tracking-tight text-[#1b1b1d] font-extrabold leading-none truncate max-w-[180px] sm:max-w-xs md:max-w-md">

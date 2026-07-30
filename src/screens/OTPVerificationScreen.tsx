@@ -125,8 +125,16 @@ export const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({
 
           <form
             onSubmit={handleVerify}
-            className="relative z-10 flex flex-col gap-8"
+            className="relative z-10 flex flex-col gap-6 items-center"
           >
+            {/* App Logo */}
+            <div className="w-18 h-18 rounded-2xl glass-surface border border-white/80 shadow-md flex items-center justify-center p-2 bg-white/70">
+              <img
+                src="/tirak_logo.png"
+                alt="TIRAK CHAT"
+                className="w-full h-full object-contain filter drop-shadow-xs"
+              />
+            </div>
             <div className="flex justify-between items-center gap-2">
               {otp.map((digit, index) => (
                 <input

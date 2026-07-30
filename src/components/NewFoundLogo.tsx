@@ -19,7 +19,7 @@ export const NewFoundLogo: React.FC<NewFoundLogoProps> = ({
   };
 
   const currentSize = sizeMap[size];
-  const logoImageUrl = "https://img1.pic.in.th/images/-2026-07-27-211150.png";
+  const logoImageUrl = "/tirak_logo.png";
 
   return (
     <div
@@ -31,11 +31,11 @@ export const NewFoundLogo: React.FC<NewFoundLogoProps> = ({
         <img
           className="w-full h-full object-contain transition-transform hover:scale-105 duration-300 rounded-xl"
           src={logoImageUrl}
-          alt="Tirak Chat Logo"
+          alt="TIRAK CHAT Logo"
 
           onError={(e) => {
             // Fallback if image fails to load
-            e.currentTarget.style.display = "none";
+            e.currentTarget.src = "https://img1.pic.in.th/images/5238c478e33ac7c36ea2c0e3f2383266.png";
           }}
         />
       </div>
@@ -43,12 +43,14 @@ export const NewFoundLogo: React.FC<NewFoundLogoProps> = ({
       {showText && (
         <div className="mt-2 text-center">
           <span
-            className={`font-th-heading font-extrabold tracking-wider text-[#1A2648] uppercase ${currentSize.text}`}
+            className={`font-th-heading font-extrabold tracking-wider text-[#7e5356] uppercase ${currentSize.text}`}
           >
-            Tirak Chat
+            TIRAK CHAT
           </span>
         </div>
       )}
     </div>
   );
 };
+
+export const TirakChatLogo = NewFoundLogo;
