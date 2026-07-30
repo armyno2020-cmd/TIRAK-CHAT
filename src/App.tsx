@@ -707,6 +707,7 @@ export default function App() {
             currentUser={currentUser}
             onNavigate={navigateTo}
             onOpenLanguageModal={() => setIsLanguageModalOpen(true)}
+            unreadCount={totalUnread}
           />
 
           {/* LEFT SIDEBAR CHAT LIST (Always on desktop, on mobile visible when in chat_list) */}

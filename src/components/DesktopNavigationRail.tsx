@@ -27,7 +27,7 @@ export const DesktopNavigationRail: React.FC<DesktopNavigationRailProps> = ({
   currentUser,
   onNavigate,
   onOpenLanguageModal,
-  unreadCount = 1,
+  unreadCount = 0,
 }) => {
   const isTabActive = (screenGroup: string) => {
     if (
