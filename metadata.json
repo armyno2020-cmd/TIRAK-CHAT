@@ -1,0 +1,11 @@
+{
+  "name": "TIRAK CHAT",
+  "description": "A secure and intimate messaging platform designed for meaningful connections with End-to-End Encryption, glassmorphism UI, and Firebase integration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

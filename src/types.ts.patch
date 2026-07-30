@@ -1,0 +1,13 @@
+--- src/types.ts
++++ src/types.ts
+@@ -101,2 +101,10 @@
+ }
+ 
++export interface Friendship {
++  id: string;
++  userId: string;
++  friendId: string;
++  status: 'pending' | 'accepted' | 'blocked';
++  createdAt: number;
++}
++

@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+@theme {
+  --radius-squircle-sm: 0.5rem;
+  --radius-squircle: 1rem;
+  --radius-squircle-lg: 1.5rem;
+  --radius-squircle-full: 9999px;
+  --shadow-ambient: 0 20px 40px -10px rgba(93, 94, 99, 0.08);
+  --shadow-ambient-active: 0 30px 60px -15px rgba(126, 83, 86, 0.15);
+}
+
+@layer base {
+  body {
+    font-family: 'Prompt', 'Kanit', 'Sarabun', 'Plus Jakarta Sans', 'Inter', sans-serif;
+    background: radial-gradient(circle at top right, #ffdede 0%, #f6f3f5 50%, #f0edef 100%);
+    color: #1b1b1d;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  * {
+    font-family: 'Prompt', 'Kanit', 'Sarabun', 'Plus Jakarta Sans', 'Inter', sans-serif;
+    box-sizing: border-box;
+  }
+}
+
+.font-th-heading {
+  font-family: 'Prompt', 'Kanit', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-th-body {
+  font-family: 'Prompt', 'Sarabun', 'Inter', sans-serif;
+}
+
+/* Glassmorphism Utilities - Liquid Formalist Architecture */
+.mesh-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(140deg, #fcf8fb 0%, #eae7ea 100%);
+  overflow: hidden;
+}
+
+.mesh-blob {
+  position: absolute;
+  filter: blur(70px);
+  opacity: 0.85;
+  animation: float 18s infinite ease-in-out alternate;
+}
+
+.blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e0dfe4; animation-delay: 0s; }
+.blob-2 { bottom: -15%; right: -10%; width: 55vw; height: 55vw; background: #ffdadb; animation-delay: -5s; }
+.blob-3 { top: 35%; left: 55%; width: 45vw; height: 45vw; background: #e3e2e7; animation-delay: -10s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10%, 10%) scale(1.1); }
+}
+
+
+
+
+
+.glass-button-primary {
+  background: linear-gradient(135deg, rgba(190, 133, 140, 0.7) 0%, rgba(126, 83, 86, 0.85) 100%);
+  backdrop-filter: blur(30px) saturate(120%);
+  -webkit-backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+      0 20px 40px -8px rgba(126, 83, 86, 0.4),
+      0 10px 15px -3px rgba(126, 83, 86, 0.2),
+      inset 0 2px 4px rgba(255, 255, 255, 0.6),
+      inset 0 -4px 10px rgba(70, 30, 35, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.15);
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.glass-button-primary:hover {
+  background: linear-gradient(135deg, rgba(200, 145, 150, 0.8) 0%, rgba(140, 95, 98, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0.96) translateY(2px); 
+  box-shadow: 
+      0 10px 20px -5px rgba(126, 83, 86, 0.5), 
+      inset 0 2px 8px rgba(255, 255, 255, 0.8),
+      inset 0 -2px 5px rgba(70, 30, 35, 0.4);
+}
+
+.glass-button-secondary {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #1b1b1d;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.glass-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 1);
+  transform: scale(0.96);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.glass-bubble-sender {
+  background: linear-gradient(135deg, rgba(190, 133, 140, 0.65) 0%, rgba(126, 83, 86, 0.8) 100%);
+  backdrop-filter: blur(30px) saturate(120%);
+  -webkit-backdrop-filter: blur(30px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+      0 15px 30px -8px rgba(126, 83, 86, 0.25), 
+      inset 0 2px 4px rgba(255, 255, 255, 0.5), 
+      inset 0 -4px 10px rgba(70, 30, 35, 0.2);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.glass-input {
+  background: rgba(93, 94, 99, 0.06);
+  border: 1px solid transparent;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(126, 83, 86, 0.4);
+  box-shadow: 0 0 0 4px rgba(126, 83, 86, 0.1);
+}
+
+.glass-surface {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+
+.liquid-bg {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(350, 48%, 90%, 1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(280, 20%, 95%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(350, 48%, 90%, 1) 0, transparent 50%);
+  background-color: #fcf8fb;
+}
+
+.active-selection {
+  background: rgba(126, 83, 86, 0.08) !important;
+  border-color: rgba(126, 83, 86, 0.3) !important;
+}
+
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background-color 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.glass-border {
+  border: 1px solid rgba(118, 119, 123, 0.15);
+}
+
+.text-gradient-pink {
+  background: linear-gradient(135deg, #7e5356 0%, #ba1a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, #7e5356 0%, #633c3f 100%);
+  box-shadow: 0 4px 15px rgba(126, 83, 86, 0.25);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(126, 83, 86, 0.35);
+}
+
+.btn-premium:active {
+  transform: scale(0.98);
+}
+
+.coral-btn {
+  background: #7e5356;
+  color: #ffffff;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.coral-btn:hover {
+  background: #633c3f;
+  box-shadow: 0 6px 18px rgba(126, 83, 86, 0.35);
+}
+
+.story-ring {
+  padding: 2.5px;
+  background: linear-gradient(45deg, #7e5356, #3A76F0, #ffffff);
+  border-radius: 9999px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(126, 83, 86, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 83, 86, 0.4);
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.floating-element {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@layer utilities {
+  .call-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .float-animation {
+    animation: floating 6s ease-in-out infinite;
+  }
+  .ringing-wave {
+    animation: ripple 3s cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+  }
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .ring-wave {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1px solid rgba(126, 83, 86, 0.4);
+    box-shadow: 0 0 20px rgba(126, 83, 86, 0.2);
+    opacity: 0;
+  }
+  .ring-wave-1 { animation: wave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .ring-wave-2 { animation: wave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s; }
+  .ring-wave-3 { animation: wave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite 2s; }
+}
+
+@keyframes wave {
+  0% { transform: scale(1); opacity: 0.8; border-width: 2px; }
+  100% { transform: scale(1.8); opacity: 0; border-width: 0px; }
+}
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes scan {
+  0%, 100% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  50% { top: 100%; }
+}
+
+@layer utilities {
+  .animate-scan {
+    animation: scan 2s ease-in-out infinite;
+  }
+}
+

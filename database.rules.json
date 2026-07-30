@@ -1,0 +1,41 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "presence": {
+      "$userId": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == $userId",
+        ".validate": "newData.hasChildren(['isOnline', 'lastSeen'])"
+      }
+    },
+
+    "typing": {
+      "$chatId": {
+        ".read": "auth != null && root.child('chatMembers').child($chatId + '_' + auth.uid).exists()",
+        "$userId": {
+          ".write": "auth != null && auth.uid == $userId",
+          ".validate": "newData.hasChildren(['displayName', 'timestamp'])",
+          ".value": "newData.child('timestamp').val() > now - 10000"
+        }
+      }
+    },
+
+    "callInvites": {
+      "$userId": {
+        ".read": "auth != null && auth.uid == $userId",
+        ".write": "auth != null"
+      }
+    },
+
+    "chatPresence": {
+      "$chatId": {
+        ".read": "auth != null && root.child('chatMembers').child($chatId + '_' + auth.uid).exists()",
+        "$userId": {
+          ".write": "auth != null && auth.uid == $userId"
+        }
+      }
+    }
+  }
+}

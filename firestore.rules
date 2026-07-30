@@ -1,0 +1,99 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Check if the user is listed in the chatMembers subcollection or members array
+    function isChatMember(chatId) {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/chats/$(chatId)/chatMembers/$(request.auth.uid)) ||
+        (
+          exists(/databases/$(database)/documents/chats/$(chatId)) &&
+          request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.members
+        )
+      );
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 'users' collection: Authenticated users can read profiles for friend discovery/lookups, and write their own data
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+    }
+
+    // 'friendships' collection: Users can manage friendship requests involving themselves
+    match /friendships/{friendshipId} {
+      allow read, write: if isSignedIn() && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == resource.data.friendId ||
+        request.auth.uid == resource.data.requesterId ||
+        request.auth.uid == resource.data.recipientId ||
+        request.auth.uid == request.resource.data.userId ||
+        request.auth.uid == request.resource.data.friendId ||
+        request.auth.uid == request.resource.data.requesterId ||
+        request.auth.uid == request.resource.data.recipientId
+      );
+    }
+
+    // 'chats' collection
+    match /chats/{chatId} {
+      // Allow reading and writing chat documents if the user is signed in and a member
+      allow get, list: if isSignedIn() && (
+        isChatMember(chatId) ||
+        (resource != null && request.auth.uid in resource.data.members)
+      );
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn() && (
+        isChatMember(chatId) ||
+        (resource != null && request.auth.uid in resource.data.members)
+      );
+
+      // 'chatMembers' subcollection
+      match /chatMembers/{memberId} {
+        allow read, write: if isSignedIn();
+      }
+
+      // 'messages' subcollection: Users can only read messages from chats where they are members
+      match /messages/{messageId} {
+        allow read: if isChatMember(chatId);
+        allow create: if isChatMember(chatId) && request.resource.data.senderId == request.auth.uid;
+        allow update, delete: if isChatMember(chatId) && (
+          resource.data.senderId == request.auth.uid ||
+          request.resource.data.status != null
+        );
+      }
+    }
+
+    // Top-level 'messages' collection (if referenced directly)
+    match /messages/{messageId} {
+      allow read: if isSignedIn() && (
+        resource != null && isChatMember(resource.data.chatId)
+      );
+      allow create: if isSignedIn() && request.resource.data.senderId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.senderId == request.auth.uid;
+    }
+
+    // Calls collection
+    match /calls/{callId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // System connection test doc
+    match /system/{docId} {
+      allow read, write: if isSignedIn();
+    }
+  }
+}

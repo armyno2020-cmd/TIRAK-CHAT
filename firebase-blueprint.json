@@ -1,0 +1,105 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile with E2EE key bundle and preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "phone": { "type": "string" },
+        "username": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "about": { "type": "string" },
+        "publicKey": { "type": "string" },
+        "isOnline": { "type": "boolean" },
+        "presenceState": { "type": "string", "enum": ["online", "offline", "away"] },
+        "lastSeen": { "type": "string" },
+        "lastSeenAt": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "Chat": {
+      "title": "Chat Room",
+      "description": "1:1 or group chat metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["direct", "group"] },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "members": { "type": "array" },
+        "ownerId": { "type": "string" },
+        "adminIds": { "type": "array" },
+        "lastMessage": { "type": "string" },
+        "lastMessageAt": { "type": "string" },
+        "isArchived": { "type": "boolean" },
+        "isPinned": { "type": "boolean" },
+        "isMuted": { "type": "boolean" },
+        "disappearingTime": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "type", "members"]
+    },
+    "Message": {
+      "title": "Chat Message",
+      "description": "E2EE encrypted chat message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "chatId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "content": { "type": "string" },
+        "contentType": { "type": "string", "enum": ["text", "image", "video", "audio", "file", "location", "system"] },
+        "mediaUrl": { "type": "string" },
+        "replyTo": { "type": "string" },
+        "status": { "type": "string", "enum": ["sending", "sent", "delivered", "read", "failed"] },
+        "isEdited": { "type": "boolean" },
+        "isDeleted": { "type": "boolean" },
+        "scheduledAt": { "type": "string" },
+        "expiresAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "chatId", "senderId", "content", "contentType"]
+    },
+    "Call": {
+      "title": "Call Record",
+      "description": "Voice and Video call session metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "callerId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "chatId": { "type": "string" },
+        "type": { "type": "string", "enum": ["voice", "video"] },
+        "status": { "type": "string", "enum": ["calling", "ongoing", "ended", "missed", "rejected"] },
+        "startedAt": { "type": "string" },
+        "endedAt": { "type": "string" },
+        "duration": { "type": "number" }
+      },
+      "required": ["id", "callerId", "type", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile collection"
+    },
+    "/chats/{chatId}": {
+      "schema": "Chat",
+      "description": "Chat rooms collection"
+    },
+    "/chats/{chatId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Encrypted messages subcollection"
+    },
+    "/calls/{callId}": {
+      "schema": "Call",
+      "description": "Voice and video call collection"
+    }
+  }
+}
